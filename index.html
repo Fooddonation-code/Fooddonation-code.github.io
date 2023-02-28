@@ -1,0 +1,91 @@
+<?php
+session_start();
+
+include("connection.php");
+include("function.php");
+
+$user_data = check_login($con);
+
+?>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<a href="logout.php">logout</a>
+	<h1>WELCOME TO OUR WEBSITE</h1>
+
+	<br>
+	hello, <?php echo $user_data["user_name"]; ?>
+
+<title>Food Donation</title>
+<style>
+    body {
+      background-image: url("https://img.freepik.com/premium-photo/blank-white-crumpled-creased-paper-poster-texture-background_293060-4178.jpg");
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: sans-serif;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+    <header>
+		<h1>Food Donation</h1>
+		<nav>
+			<ul>
+				<li><a href="#about">About</a></li>
+				<li><a href="#donate">Donate</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<main>
+		<section id="about">
+			<h2>About Us</h2>
+			<p>Our organization is dedicated to fighting hunger in our community. We believe that everyone deserves access to healthy, nutritious food and we work tirelessly to make that a reality.</p>
+		</section>
+		
+		<section id="donate">
+			<h2>Donate</h2>
+			<form>
+				<label for="name">Name:</label>
+				<input type="text" id="name" name="name"><br>
+
+				<label for="email">Email:</label>
+				<input type="email" id="email" name="email"><br>
+
+				<label for="phone">Phone:</label>
+				<input type="tel" id="phone" name="phone"><br>
+
+				<label for="address">Address:</label>
+				<input type="text" id="address" name="address"><br>
+
+				<label for="food">Food Items:</label>
+				<textarea id="food" name="food"></textarea><br>
+
+				<button type="submit">Donate Now</button>
+			</form>
+		</section>
+		
+		<section id="contact">
+			<h2>Contact Us</h2>
+			<p>If you have any questions or concerns, please feel free to contact us:</p>
+			<ul>
+				<li>Email: info@fooddonation.com</li>
+				<li>Phone: 999-487-2355</li>
+				<li>Address: 123 Main Street, Bangalore</li>
+			</ul>
+		</section>
+	</main>
+	
+	<footer>
+		<p>&copy; 2023 Food Donation</p>
+	</footer>
+</body>
+</html>
+
